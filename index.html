@@ -1,0 +1,92 @@
+<html>
+<head>
+    <title>Eletricidade</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script>
+
+        $(function () {
+
+            $('#calcular').on('click', function(event){
+
+                $("#totaltensao").val(0);
+                $("#totalpotencia").val(0);
+                $("#totalcorrente").val(0);
+                $("#totalresistencia").val(0);
+
+                for( i = 1 ; i <= $("#qtde").val() ; i++){
+
+                    if( $('#tensao'+i).val() && $('#potencia'+i).val() ){
+
+                        $('#corrente'+i).val( $('#potencia' + i).val() / $('#tensao' + i).val() );
+
+                    }
+
+                    if( $('#tensao'+i).val() && $('#corrente'+i).val() ){
+
+                        $('#resistencia'+i).val( $('#tensao'+i).val() / $('#corrente'+i).val() );
+
+                    }
+
+                    if( $('#tensao'+i).val() ){
+                        $("#totaltensao").val( parseFloat($("#totaltensao").val()) + parseFloat($('#tensao'+i).val()) );
+                    }
+
+                    if( $('#potencia'+i).val() ){
+                        $("#totalpotencia").val( parseFloat($("#totalpotencia").val()) + parseFloat($('#potencia'+i).val()) );
+                    }
+
+                    if( $('#corrente'+i).val() ){
+                        $("#totalcorrente").val( parseFloat($("#totalcorrente").val()) + parseFloat($('#corrente'+i).val()) );
+                    }
+
+                    if( $('#resistencia'+i).val() ){
+                        $("#totalresistencia").val( parseFloat($("#totalresistencia").val()) + parseFloat($('#resistencia'+i).val()) );
+                    }
+
+                }
+
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+    <input type="hidden" id="qtde" value="2" >
+    <p><input type="submit" value=" Gerar mais " ></p>
+
+    <table>
+        <tr>
+            <td></td>
+            <td>Tensao</td>
+            <td>Potencia</td>
+            <td>Corrente</td>
+            <td>Resistencia</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><input text="text" id="tensao1" size="10"></td>
+            <td><input text="text" id="potencia1" size="10"></td>
+            <td><input text="text" id="corrente1" size="10"></td>
+            <td><input text="text" id="resistencia1" size="10"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><input text="text" id="tensao2" size="10"></td>
+            <td><input text="text" id="potencia2" size="10"></td>
+            <td><input text="text" id="corrente2" size="10"></td>
+            <td><input text="text" id="resistencia2" size="10"></td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td><input text="text" id="totaltensao" readonly size="10"></td>
+            <td><input text="text" id="totalpotencia" readonly size="10"></td>
+            <td><input text="text" id="totalcorrente" readonly size="10"></td>
+            <td><input text="text" id="totalresistencia" readonly size="10"></td>
+        </tr>
+    </table>
+
+    <input type="button" id="calcular" value=" Calcular ">
+
+</body>
+</html>

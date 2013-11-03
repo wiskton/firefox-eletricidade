@@ -1,0 +1,34 @@
+{
+    "version": "0.1",
+    "name": "Eletricidade",
+    "description": "Eletricidade",
+    "launch_path": "/index.html",
+    "icons": {
+        "16": "/imgs/icons/wi16.png",
+        "48": "/imgs/icons/wi48.png",
+        "128": "/imgs/icons/wi128.png"
+    },
+    "developer": {
+        "name": "Willem Allan",
+        "url": "http://willemallan.com.br"
+    },
+    "installs_allowed_from": ["*"],
+    "locales": {
+        "es": {
+            "description": "Eletricidade",
+            "developer": {
+                "url": "http://willemallan.com.br"
+            }
+        },
+        "it": {
+            "description": "Eletricidade",
+            "developer": {
+                "url": "http://willemallan.com.br"
+            }
+        }
+    },
+    "default_locale": "en",
+    "permissions": {
+        "systemXHR": {}
+    }
+}
